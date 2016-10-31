@@ -72,7 +72,7 @@
           'timeMin': vm.startDate.toISOString(),
           'timeMax': vm.endDate.toISOString(),
           'showDeleted': false,
-          'singleEvents': false
+          'singleEvents': true
         });
 
         request.execute(function(resp) {
