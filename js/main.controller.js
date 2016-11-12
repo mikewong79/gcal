@@ -13,6 +13,7 @@
       vm.calendars = [];
       vm.startDate = new Date();
       vm.getCalendarEvents = getCalendarEvents;
+      vm.moment = moment;
 
       var CLIENT_ID = '691219269754-09i20sq65ahqvjhtr7eckp77ei9t369j.apps.googleusercontent.com';
       var SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"];
