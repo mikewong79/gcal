@@ -31,8 +31,7 @@
         <button type='submit'>See Events</button>
       </form>
       <div ng-repeat='event in mainCtrl.events | orderBy: "start.dateTime"'>
-        {{mainCtrl.moment(event.start.dateTime || event.start.date).format("dd, MMM DD, hh:mm a")}}<br>
-        {{mainCtrl.moment(event.end.dateTime || event.end.date).format("dd, MMM DD, hh:mm a")}} - {{event.summary}}
+        {{event.startTime}}-{{event.endTime}}: <a href={{event.link}} target="_blank">{{event.summary}}</a> by {{event.organizer}}
       </div>
     </div>
     <script src="js/moment.min.js"></script>

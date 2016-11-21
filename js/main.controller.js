@@ -62,7 +62,6 @@
         var request = gapi.client.calendar.calendarList.list();
         request.execute(function(resp) {
           vm.calendars = resp.items;
-          console.log(resp);
           $scope.$apply();
         })
       }
@@ -77,8 +76,16 @@
         });
 
         request.execute(function(resp) {
-          vm.events = resp.items;
-          console.log(vm.events)
+          vm.events = resp.items.map(function(event) {
+            return {
+              endTime: moment(event.end.dateTime).format('HH:mm'),
+              link: event.htmlLink,
+              organizer: event.organizer.displayName || event.organizer.email,
+              startTime: moment(event.start.dateTime).format('HH:mm'),
+              summary: event.summary
+            }
+          });
+          console.log(resp)
           $scope.$apply();
 
         });
