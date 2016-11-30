@@ -30,8 +30,21 @@
         <md-datepicker ng-model="mainCtrl.endDate"></md-datepicker>
         <button type='submit'>See Events</button>
       </form>
-      <div ng-repeat='event in mainCtrl.events | orderBy: "start.dateTime"'>
-        {{event.startTime}}-{{event.endTime}}: <a href={{event.link}} target="_blank">{{event.summary}}</a> by {{event.organizer}}
+      <md-input-container>
+        <label>Start</label>
+        <md-select ng-model="mainCtrl.startTime">
+          <md-option ng-value="time" ng-repeat="time in mainCtrl.hours">{{ time }}</md-option>
+        </md-select>
+      </md-input-container>
+      <md-input-container>
+        <label>End</label>
+        <md-select ng-model="mainCtrl.endTime">
+          <md-option ng-value="time" ng-repeat="time in mainCtrl.hours">{{ time }}</md-option>
+        </md-select>
+      </md-input-container>
+
+      <div ng-repeat='event in mainCtrl.events | filter: mainCtrl.hoursSearch'>
+        {{event.date}}: {{event.startTime}}-{{event.endTime}}: <a href={{event.link}} target="_blank">{{event.summary}}</a> by {{event.organizer}}
       </div>
     </div>
     <script src="js/moment.min.js"></script>
