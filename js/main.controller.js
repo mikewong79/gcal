@@ -16,8 +16,8 @@
       vm.moment = moment;
       vm.hours = ["08:00", "09:00", "10:00", "11:00","12:00", "13:00", "14:00", "15:00","16:00", "17:00", "18:00", "19:00","20:00", "21:00", "22:00"]
       vm.hoursSearch = hoursSearch;
-      vm.startTime = "";
-      vm.endTime = "";
+      vm.startTime = "08:00";
+      vm.endTime = "22:00";
 
       var CLIENT_ID = '691219269754-09i20sq65ahqvjhtr7eckp77ei9t369j.apps.googleusercontent.com';
       var SCOPES = ["https://www.googleapis.com/auth/calendar.readonly"];
